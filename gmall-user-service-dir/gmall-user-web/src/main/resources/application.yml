@@ -1,0 +1,26 @@
+server:
+  port: 10003
+
+
+
+spring:
+  dubbo:
+    # dubbo中的服务名称
+    application:
+      name: user-web
+    protocol:
+      # dubbo中的通信协议名称
+      name:  dubbo
+    registry:
+      # zookeeper注册中心的地址加端口号
+      address: 127.0.0.1:2181
+      # zookeeper注册中心协议
+      protocol: zookeeper
+    # dubbo的服务扫描路径
+    base-package: com.gmall
+    consumer:
+      # 访问提供端服务的超时时间，默认是1000毫秒
+      timeout: 30000
+      # 是启动消费端时，是否检查服务端能否正常访问。如果选择true，那启动消费端时，必须保证提供端服务正常，否则接口无法注入
+      check: false
+

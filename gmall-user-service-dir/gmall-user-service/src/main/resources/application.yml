@@ -1,0 +1,38 @@
+
+
+
+server:
+  port: 10002
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/gmall0105?useunicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    driver-class-name:  com.mysql.jdbc.Driver
+
+  dubbo:
+    # dubbo中的服务名称
+    application:
+      name: user-service-server
+    protocol:
+      # dubbo中的通信协议名称
+      name:  dubbo
+    registry:
+      # zookeeper注册中心的地址加端口号
+      address: 127.0.0.1:2181
+      # zookeeper注册中心协议
+      protocol: zookeeper
+    # dubbo的服务扫描路径
+    base-package: com.gmall
+
+
+
+#mybatis 映射 xml和pojo映射
+mybatis:
+  type-aliases-package: com.gmalluser.pojo
+  mapper-locations: classpath:mapper/*.xml
+
+
+logging:
+  level: debug
